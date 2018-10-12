@@ -40,5 +40,23 @@
         ]
     });
 
+    let $upBtn = $('.up_button');
+    window.onscroll = function() {scrollFunction()};
+
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            $upBtn.fadeIn();
+        } else {
+            $upBtn.fadeOut();
+        }
+    }
+
+    $(document).on('click', '.up_button', function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+    });
+
 
 })(jQuery);

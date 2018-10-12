@@ -77,13 +77,8 @@ $arrows: #C3C4C4
   .slick-arrow
     width: 55px
     height: 55px
-    background-color: $arrows
     border-radius: 2px
     transition: all .2s
-    &:hover
-      background-color: $accent
-    &:focus
-      background-color: $arrows
     &:before
       content: ''
       position: absolute
@@ -202,6 +197,32 @@ h4
       margin: 20px auto
 
 @include slickArrows
+
+.up_button
+  display: none
+  position: fixed
+  right: 10px
+  bottom: 10px
+  background-color: $red
+  border-radius: 3px
+  border: 2px solid $red
+  width: 65px
+  height: 65px
+  transition: background-color .2s
+  text-align: center
+  cursor: pointer
+  z-index: 99
+  @media screen and (max-width: 991px)
+    z-index: -99
+  svg
+    margin-top: 20px
+    width: 60%
+    transform: rotate(-90deg)
+  &:hover
+    background-color: $white
+    .cls-up
+      transition: all .2s
+      fill: $red
 
 //Section1
 .section1
@@ -332,6 +353,10 @@ h4
           position: absolute
           right: 20px
           bottom: 20px
+    .slick-arrow
+      background-color: $arrows
+      &:hover
+        background-color: darken($arrows, 5%)
     .slick-dots
       bottom: -45px
       width: 90%
