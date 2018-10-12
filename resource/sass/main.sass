@@ -353,6 +353,8 @@ h4
     padding-right: 5px
     @media screen and (max-width: 991px)
       margin-bottom: 25px
+      padding-left: 15px
+      padding-right: 15px
   .taro_item
     background-color: $white
     border: 1px solid #D1D1D1
@@ -490,14 +492,11 @@ h4
   background-color: $white
   text-align: center
   #video_slider
-    margin-top: 45px
+    margin: 45px 0
     padding: 0 25px
     @media screen and (max-width: 1280px)
       width: 95%
-      margin: 0 auto
-      margin-top: 45px
-    @media screen and (max-width: 991px)
-      margin-bottom: 50px
+      margin: 45px auto
     @media screen and (max-width: 767px)
       padding: 0
     @media screen and (max-width: 575px)
@@ -534,7 +533,7 @@ h4
             font-size: 25px
             @media screen and (max-width: 575px)
               font-size: 15px
-          &:hover
+          &:hover, &:focus
             &:before
               color: darken($yellow, 5%)
       .slick-active

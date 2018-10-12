@@ -372,7 +372,9 @@ h4 {
     padding-right: 5px; }
     @media screen and (max-width: 991px) {
       .section5 .taro_wrapper {
-        margin-bottom: 25px; } }
+        margin-bottom: 25px;
+        padding-left: 15px;
+        padding-right: 15px; } }
   .section5 .taro_item {
     background-color: #fff;
     border: 1px solid #D1D1D1;
@@ -553,16 +555,12 @@ h4 {
   background-color: #fff;
   text-align: center; }
   .section7 #video_slider {
-    margin-top: 45px;
+    margin: 45px 0;
     padding: 0 25px; }
     @media screen and (max-width: 1280px) {
       .section7 #video_slider {
         width: 95%;
-        margin: 0 auto;
-        margin-top: 45px; } }
-    @media screen and (max-width: 991px) {
-      .section7 #video_slider {
-        margin-bottom: 50px; } }
+        margin: 45px auto; } }
     @media screen and (max-width: 767px) {
       .section7 #video_slider {
         padding: 0; } }
@@ -603,7 +601,7 @@ h4 {
           @media screen and (max-width: 575px) {
             .section7 #video_slider .slick-dots li button:before {
               font-size: 15px; } }
-        .section7 #video_slider .slick-dots li button:hover:before {
+        .section7 #video_slider .slick-dots li button:hover:before, .section7 #video_slider .slick-dots li button:focus:before {
           color: #ffab5a; }
       .section7 #video_slider .slick-dots .slick-active button:before {
         color: #FFB873; }
