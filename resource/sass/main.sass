@@ -1,0 +1,396 @@
+@font-face
+  font-family: 'Proxima Nova Bold'
+  src: url('../fonts/proximanova-bold.woff2') format('woff2'),
+  url('../fonts/proximanova-bold.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Proxima Nova Light'
+  src: url('../fonts/proximanova-light.woff2') format('woff2'),
+  url('../fonts/proximanova-light.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+//Colors
+$red: #FF1E00
+$base: #686565
+$accent: #3D393A
+$black: #242424
+$white: #fff
+$buttonWhite: #F5F8F6
+$yellow: #FFB873
+$sectionBg: #EFF1F0
+$blue: #038BAB
+$sectionDarkBg: #DDDEDE
+$arrows: #C3C4C4
+
+//Mixins
+@mixin redText
+  color: $red
+  font-size: 21px
+
+@mixin button
+  display: inline-block
+  font-family: 'Proxima Nova Bold', sans-serif
+  text-transform: uppercase
+  padding: 20px 40px 15px 40px
+  background-color: $red
+  color: $white
+  border: 2px solid $red
+  border-radius: 3px
+  transition: all .2s
+  cursor: pointer
+  margin: 0 10px
+  &:hover
+    background-color: $buttonWhite
+    color: $red
+
+@mixin buttonInverse
+  @include button
+  background-color: $buttonWhite
+  color: $red
+  border: 2px solid $red
+  &:hover
+    background-color: $red
+    color: $white
+
+@mixin subTitle
+  font-size: 24px
+  margin-bottom: 50px
+
+@mixin arrow_list
+  list-style: none
+  padding: 35px 20px
+  li
+    padding-left: 20px
+    margin-bottom: 35px
+    position: relative
+    color: $black
+    svg
+      position: absolute
+      top: 7px
+      left: -5px
+@mixin slickArrows
+  .slick-arrow
+    width: 55px
+    height: 55px
+    background-color: $arrows
+    border-radius: 2px
+    transition: all .2s
+    &:hover
+      background-color: $accent
+    &:before
+      content: ''
+      position: absolute
+      left: 28%
+      top: 28%
+      background-image: url('../img/arrow.png')
+      background-repeat: no-repeat
+      background-size: cover
+      width: 40%
+      height: 43%
+  .slick-next
+    transform-origin: 55% 25%
+    transform: rotate(-180deg)
+    right: -50px
+  .slick-prev
+    left: -50px
+
+
+//Layout
+body
+  font-family: 'Proxima Nova Light', sans-serif
+  font-size: 16px
+  color: $base
+  background-color: $white
+
+section
+  padding: 50px 0
+
+h3
+  text-transform: uppercase
+  font-size: 30px
+  color: $accent
+  text-align: center
+  margin-bottom: 20px
+  span
+    font-family: 'Proxima Nova Bold', sans-serif
+
+h4
+  text-transform: uppercase
+  font-size: 24px
+  color: $base
+  text-align: center
+
+.divider
+  margin: 35px auto
+  width: 130px
+  height: 8px
+  background-color: $yellow
+
+.hidden
+  display: none
+
+//Header
+.header
+  padding-top: 60px
+  padding-bottom: 300px
+  text-align: center
+  background-image: url('../img/bg-header.jpg')
+  background-position: center center
+  background-size: cover
+  .redText
+    @include redText
+    margin-bottom: 30px
+  .date
+    font-size: 18px
+    color: $accent
+    margin-bottom: 20px
+  .description
+    font-size: 18px
+    margin-bottom: 0
+  h1
+    font-family: 'Times New Roman', serif
+    font-size: 72px
+    text-transform: uppercase
+    color: $black
+    margin: 50px 0 30px 0
+  .subTitle
+    @include subTitle
+  .button
+    @include button
+  .button_inverse
+    @include buttonInverse
+
+@include slickArrows
+
+//Section1
+.section1
+  background-color: $sectionBg
+  .item_row
+    margin-bottom: 20px
+    .block_item
+      background-color: $white
+      box-shadow: 3px 3px 30px 2px rgba(0, 0, 0, 0.2)
+      height: 100%
+      img
+        width: 100%
+        height: auto
+      .caption
+        text-align: center
+        padding: 20px 5px
+        margin-bottom: 0
+
+//Section2
+.section2
+  background-color: $white
+  .pic_block
+    padding: 0 75px 0 35px
+    img
+      width: 100%
+      height: auto
+  .text_block
+    margin-left: -15px
+    padding-top: 20px
+    .name
+      @include subTitle
+      margin: 0
+    .description
+      margin: 20px 0
+  .subTitle
+    @include subTitle
+    text-align: center
+    margin-top: 45px
+
+.section3
+  background-color: $sectionBg
+  .study_item
+    background-color: $white
+    height: 100%
+    box-shadow: 3px 3px 30px 2px rgba(0, 0, 0, 0.2)
+    .item_header
+      background-color: $blue
+      h3
+        display: block
+        color: $white
+        padding: 25px 0
+        margin: 0
+    img
+      width: 100%
+      height: auto
+    .study_caption
+      @include arrow_list
+
+//Section4
+.section4
+  background-color: $sectionDarkBg
+  #slick_slider
+    margin-top: 45px
+    padding: 0 25px
+    .slide
+      display: flex
+      .img_block
+        width: 30%
+        img
+          width: auto
+          height: 100%
+      .text_block
+        width: 70%
+        padding: 30px
+        padding-bottom: 20px
+        background-color: $white
+        p
+          font-style: italic
+          line-height: 150%
+        .name
+          color: $black
+          font-style: normal
+        img
+          float: right
+
+//Section5
+.section5
+  background-color: $white
+  .taro_item
+    background-color: $white
+    border: 1px solid #D1D1D1
+    border-top: none
+    height: 100%
+    position: relative
+    padding-bottom: 50%
+    .taro_header
+      text-align: center
+      background-color: $blue
+      font-size: 24px
+      color: $white
+      padding: 5px 0
+      margin-left: -1px
+      margin-right: -1px
+      .item_name
+        font-family: 'Proxima Nova Bold', sans-serif
+        margin: 0
+      .time
+        font-family: 'Proxima Nova Light', sans-serif
+        margin: 0
+    .taro_description
+      list-style: none
+      padding: 0 10px 15px 25px
+      margin: 0
+      li
+        font-size: 14px
+        color: $black
+        margin: 15px 0
+        position: relative
+        &:last-child
+          margin-bottom: 0
+        &:before
+          content: ''
+          position: absolute
+          width: 6px
+          height: 6px
+          background-color: $yellow
+          top: 7px
+          left: -14px
+    .bonus_wrapper
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      height: 50%
+      display: flex
+      flex-direction: column
+      .bonus_button
+        font-family: 'Proxima Nova Bold', sans-serif
+        text-transform: uppercase
+        color: $white
+        background-color: $yellow
+        padding: 12px 5px 12px 20px
+        margin-left: -1px
+        margin-right: -1px
+        cursor: pointer
+        margin-top: auto
+        position: relative
+        transition: all .2s
+        &:hover
+          background-color: darken($yellow, 5%)
+        img
+          margin-right: 15px
+          display: inline-block
+          vertical-align: sub
+        span
+          width: 100%
+        .b_arrow
+          width: 18px
+          height: 9px
+          position: absolute
+          top: 20px
+          right: 10px
+          transition: all .2s
+      .active
+         .b_arrow
+           transform: rotate(-90deg)
+      .bonus_description
+        height: 50%
+        background-color: $white
+      .price_block
+        text-align: center
+        font-size: 18px
+        color: $black
+        padding-top: 25px
+        background-color: $white
+        p
+          margin: 0
+        p:last-of-type
+          font-family: 'Proxima Nova Bold', sans-serif
+          font-size: 24px
+        .button
+          @include button
+          margin: 30px 0 35px 0
+          padding-left: 30px
+          padding-right: 30px
+
+//Section6
+.section6
+  background-color: #EFF1F0
+  .task_item
+    background-color: $white
+    height: 100%
+    .task_header
+      display: flex
+      justify-content: space-between
+      padding: 15px 25px 10px 40px
+      h5
+        font-family: 'Proxima Nova Bold', sans-serif
+        font-size: 30px
+        text-transform: uppercase
+        margin: 0
+        color: $black
+    hr
+      margin: 0 auto
+      width: 95%
+      height: 1px
+      background-color: #EFF1F0
+    .task_list
+      @include arrow_list
+      margin: 0
+      padding: 15px 5px 15px 20px
+      li
+        margin: 15px 0
+
+//Section7
+.section7
+  background-color: $white
+  #video_slider
+    margin-top: 45px
+    padding: 0 25px
+    .slick-arrow
+      background-color: $yellow
+      &:hover
+        background-color: darken($yellow, 5%)
+    .slider_item
+      padding: 0 25px
+      img
+        width: 100%
+        height: auto
+
