@@ -22,7 +22,7 @@ gulp.task('scripts', function () {
         'resource/js/jquery.min.js',
         'resource/js/tether.min.js',
         'resource/js/bootstrap.min.js',
-        // 'resource/js/slick.min.js'
+        'resource/js/slick.min.js'
     ])
         .pipe(concat('libs.min.js'))
         .pipe(gulp.dest('public/js'));
@@ -44,7 +44,7 @@ gulp.task('browser-sync', function () {
     });
 });
 
-gulp.task('watch', ['browser-sync', 'sass', 'css-libs', 'scripts'], function () {
+gulp.task('watch', [/*'browser-sync',*/ 'sass', 'css-libs', 'scripts'], function () {
     gulp.watch('resource/sass/**/*.sass', ['sass']);
     gulp.watch('public/*.html', browserSync.reload);
 });

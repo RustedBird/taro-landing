@@ -58,6 +58,8 @@ $arrows: #C3C4C4
 @mixin subTitle
   font-size: 24px
   margin-bottom: 50px
+  @media screen and (max-width: 575px)
+    font-size: 20px
 
 @mixin arrow_list
   list-style: none
@@ -80,6 +82,8 @@ $arrows: #C3C4C4
     transition: all .2s
     &:hover
       background-color: $accent
+    &:focus
+      background-color: $arrows
     &:before
       content: ''
       position: absolute
@@ -94,8 +98,12 @@ $arrows: #C3C4C4
     transform-origin: 55% 25%
     transform: rotate(-180deg)
     right: -50px
+    @media screen and (max-width: 1280px)
+      right: -30px
   .slick-prev
     left: -50px
+    @media screen and (max-width: 1280px)
+      left: -30px
 
 
 //Layout
@@ -107,6 +115,8 @@ body
 
 section
   padding: 50px 0
+  @media screen and (max-width: 575px)
+    padding: 25px 0
 
 h3
   text-transform: uppercase
@@ -114,6 +124,11 @@ h3
   color: $accent
   text-align: center
   margin-bottom: 20px
+  @media screen and (max-width: 1199px)
+    br
+      display: none
+  @media screen and (max-width: 575px)
+    font-size: 24px
   span
     font-family: 'Proxima Nova Bold', sans-serif
 
@@ -122,6 +137,8 @@ h4
   font-size: 24px
   color: $base
   text-align: center
+  @media screen and (max-width: 575px)
+    font-size: 20px
 
 .divider
   margin: 35px auto
@@ -140,13 +157,23 @@ h4
   background-image: url('../img/bg-header.jpg')
   background-position: center center
   background-size: cover
+  @media screen and (max-width: 991px)
+    padding-top: 40px
+    padding-bottom: 100px
+  @media screen and (max-width: 575px)
+    padding-top: 25px
+    padding-bottom: 25px
   .redText
     @include redText
     margin-bottom: 30px
+    @media screen and (max-width: 575px)
+      margin-bottom: 20px
   .date
     font-size: 18px
     color: $accent
     margin-bottom: 20px
+    @media screen and (max-width: 575px)
+      margin-bottom: 10px
   .description
     font-size: 18px
     margin-bottom: 0
@@ -156,43 +183,66 @@ h4
     text-transform: uppercase
     color: $black
     margin: 50px 0 30px 0
+    @media screen and (max-width: 575px)
+      font-size: 60px
+      margin: 30px 0 10px 0
   .subTitle
     @include subTitle
   .button
     @include button
+    @media screen and (max-width: 991px)
+      display: block
+      width: 250px
+      margin: 10px auto
   .button_inverse
     @include buttonInverse
+    @media screen and (max-width: 991px)
+      display: block
+      width: 250px
+      margin: 20px auto
 
 @include slickArrows
 
 //Section1
 .section1
-  background-color: $sectionBg
-  .item_row
-    margin-bottom: 20px
-    .block_item
-      background-color: $white
-      box-shadow: 3px 3px 30px 2px rgba(0, 0, 0, 0.2)
-      height: 100%
-      img
-        width: 100%
-        height: auto
-      .caption
-        text-align: center
-        padding: 20px 5px
-        margin-bottom: 0
+  background-color: #EFF1F0
+  .block_wrapper
+     margin-bottom: 20px
+     .block_item
+       box-shadow: 3px 3px 30px 2px rgba(0, 0, 0, 0.2)
+       background-color: $white
+       height: 100%
+       img
+         width: 100%
+         height: auto
+       .caption
+         display: block
+         text-align: center
+         padding: 20px 5px
+         margin-bottom: 0
+
 
 //Section2
 .section2
   background-color: $white
   .pic_block
     padding: 0 75px 0 35px
+    @media screen and (max-width: 1199px)
+      padding: 0
     img
       width: 100%
       height: auto
+      @media screen and (max-width: 991px)
+        width: 45%
+        display: block
+        margin: 0 auto
+      @media screen and (max-width: 575px)
+        width: 90%
   .text_block
     margin-left: -15px
     padding-top: 20px
+    @media screen and (max-width: 991px)
+      margin-left: 0
     .name
       @include subTitle
       margin: 0
@@ -204,42 +254,74 @@ h4
     margin-top: 45px
 
 .section3
-  background-color: $sectionBg
-  .study_item
-    background-color: $white
-    height: 100%
-    box-shadow: 3px 3px 30px 2px rgba(0, 0, 0, 0.2)
-    .item_header
-      background-color: $blue
-      h3
-        display: block
-        color: $white
-        padding: 25px 0
-        margin: 0
-    img
-      width: 100%
-      height: auto
-    .study_caption
-      @include arrow_list
+  background-color: #EFF1F0
+  .study_wrapper
+    &:first-of-type
+    @media screen and (max-width: 767px)
+      margin-bottom: 30px
+    .study_item
+      background-color: $white
+      height: 100%
+      box-shadow: 3px 3px 30px 2px rgba(0, 0, 0, 0.2)
+      .item_header
+        background-color: $blue
+        h3
+          display: block
+          color: $white
+          padding: 25px 0
+          margin: 0
+      img
+        width: 100%
+        height: auto
+      .study_caption
+        @include arrow_list
 
 //Section4
 .section4
-  background-color: $sectionDarkBg
+  background-color: #DDDEDE
+  @media screen and (max-width: 991px)
+    padding-bottom: 75px
+  @media screen and (max-width: 575px)
+    padding-bottom: 65px
   #slick_slider
     margin-top: 45px
     padding: 0 25px
+    @media screen and (max-width: 1280px)
+      width: 95%
+      margin: 0 auto
+      margin-top: 45px
+    @media screen and (max-width: 575px)
+      width: 100%
+      padding: 0
     .slide
       display: flex
+      flex-wrap: wrap
+      padding: 0 5px
       .img_block
         width: 30%
+        @media screen and (max-width: 1280px)
+          width: 35%
+        @media screen and (max-width: 991px)
+          width: 100%
         img
           width: auto
           height: 100%
+          @media screen and (max-width: 991px)
+            width: 100%
+            height: auto
       .text_block
         width: 70%
         padding: 30px
         padding-bottom: 20px
         background-color: $white
+        position: relative
+        @media screen and (max-width: 1280px)
+          width: 65%
+        @media screen and (max-width: 991px)
+          width: 100%
+          padding-bottom: 90px
+        @media screen and (max-width: 575px)
+          padding: 15px
         p
           font-style: italic
           line-height: 150%
@@ -247,18 +329,37 @@ h4
           color: $black
           font-style: normal
         img
-          float: right
+          position: absolute
+          right: 20px
+          bottom: 20px
+    .slick-dots
+      bottom: -45px
+      width: 90%
+      @media screen and (max-width: 575px)
+        width: 100%
+      li
+        margin: 0 15px
+        button
+          &:before
+            font-size: 25px
+            @media screen and (max-width: 575px)
+              font-size: 15px
 
 //Section5
 .section5
   background-color: $white
+  .taro_wrapper
+    padding-left: 5px
+    padding-right: 5px
+    @media screen and (max-width: 991px)
+      margin-bottom: 25px
   .taro_item
     background-color: $white
     border: 1px solid #D1D1D1
     border-top: none
     height: 100%
-    position: relative
-    padding-bottom: 50%
+    display: flex
+    flex-direction: column
     .taro_header
       text-align: center
       background-color: $blue
@@ -277,6 +378,7 @@ h4
       list-style: none
       padding: 0 10px 15px 25px
       margin: 0
+      margin-bottom: auto
       li
         font-size: 14px
         color: $black
@@ -293,13 +395,14 @@ h4
           top: 7px
           left: -14px
     .bonus_wrapper
-      position: absolute
-      bottom: 0
-      left: 0
       width: 100%
-      height: 50%
+      margin-top: auto
       display: flex
       flex-direction: column
+      justify-content: flex-end
+      height: 50%
+      @media screen and (max-width: 767px)
+        height: auto
       .bonus_button
         font-family: 'Proxima Nova Bold', sans-serif
         text-transform: uppercase
@@ -309,7 +412,6 @@ h4
         margin-left: -1px
         margin-right: -1px
         cursor: pointer
-        margin-top: auto
         position: relative
         transition: all .2s
         &:hover
@@ -328,10 +430,9 @@ h4
           right: 10px
           transition: all .2s
       .active
-         .b_arrow
+        .b_arrow
            transform: rotate(-90deg)
       .bonus_description
-        height: 50%
         background-color: $white
       .price_block
         text-align: center
@@ -353,9 +454,15 @@ h4
 //Section6
 .section6
   background-color: #EFF1F0
+  .task_wrapper
+    padding-left: 10px
+    padding-right: 10px
+    @media screen and (max-width: 991px)
+      margin-bottom: 25px
   .task_item
     background-color: $white
     height: 100%
+    box-shadow: 3px 3px 30px 2px rgba(0, 0, 0, 0.2)
     .task_header
       display: flex
       justify-content: space-between
@@ -381,16 +488,150 @@ h4
 //Section7
 .section7
   background-color: $white
+  text-align: center
   #video_slider
     margin-top: 45px
     padding: 0 25px
+    @media screen and (max-width: 1280px)
+      width: 95%
+      margin: 0 auto
+      margin-top: 45px
+    @media screen and (max-width: 991px)
+      margin-bottom: 50px
+    @media screen and (max-width: 767px)
+      padding: 0
+    @media screen and (max-width: 575px)
+      width: 100%
+      padding: 0
     .slick-arrow
       background-color: $yellow
       &:hover
         background-color: darken($yellow, 5%)
     .slider_item
       padding: 0 25px
-      img
+      @media screen and (max-width: 767px)
+        padding: 0
+      .vid_wrapper
+        position: relative
+        height: 0
         width: 100%
-        height: auto
+        padding-bottom: 56.25%
+        iframe
+          position: absolute
+          width: 100%
+          height: 100%
+          top: 0
+          left: 0
+    .slick-dots
+      bottom: -45px
+      width: 90%
+      @media screen and (max-width: 575px)
+        width: 100%
+      li
+        margin: 0 15px
+        button
+          &:before
+            font-size: 25px
+            @media screen and (max-width: 575px)
+              font-size: 15px
+          &:hover
+            &:before
+              color: darken($yellow, 5%)
+      .slick-active
+        button
+          &:before
+            color: $yellow
 
+  .slider_text
+    font-size: 20px
+    color: #2E2E2E
+    margin-bottom: 40px
+  .button
+    @include button
+  hr
+    height: 1px
+    background-color: #D7D7D7
+    margin: 50px auto
+  .guarantee
+    padding-left: 180px
+    text-align: left
+    background-image: url('../img/medal.png')
+    background-repeat: no-repeat
+    background-position: left
+    @media screen and (max-width: 575px)
+      background-position: center top
+      padding-left: 0
+      padding-top: 180px
+
+//Section8
+.section8
+  background-color: #EFF1F0
+  h3
+    margin-bottom: 50px
+  .ask_item
+    height: 100%
+    img
+      display: block
+      margin: 0 auto
+      height: 100%
+      width: auto
+      @media screen and (max-width: 575px)
+        width: 80%
+        height: auto
+    form
+      padding: 0 40px
+      color: $black
+      @media screen and (max-width: 991px)
+        padding: 50px
+        text-align: center
+      @media screen and (max-width: 575px)
+        margin: 0 auto
+        width: 100%
+        padding: 25px 0
+      input
+        display: block
+        width: 100%
+        border: 3px solid #DCDCDC
+        border-radius: 5px
+        padding: 25px
+        margin-bottom: 8px
+      textarea
+        display: block
+        width: 100%
+        border: 3px solid #DCDCDC
+        border-radius: 5px
+        padding: 25px
+        margin-bottom: 30px
+        resize: none
+      .button
+        @include button
+        margin: 0
+        &:focus
+          outline: none
+
+//Footer
+.footer
+  background-color: $white
+  .name
+    @include redText
+  .footer_item
+    text-align: center
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    @media screen and (max-width: 767px)
+      flex-direction: column
+      align-items: flex-start
+      margin-top: 10px
+    p
+      margin-bottom: 12px
+      @media screen and (max-width: 767px)
+        margin-bottom: 8px
+    a
+      margin-bottom: 12px
+      @media screen and (max-width: 767px)
+        margin-bottom: 8px
+      color: $black
+      text-decoration: underline
+      &:focus
+        outline: none
