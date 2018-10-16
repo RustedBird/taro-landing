@@ -89,12 +89,20 @@
                 method: 'post',
                 data: $form.serialize(),
                 dataType: 'json',
+                beforeSend: function() {
+                    $response.html('Отправка...');
+                },
                 success: function (results) {
-                    $response.html(results.message);
+                    if (results.message === 'Queued. Thank you.') {
+                        $response.html('Ваше сообщение упешно отправлено');
+                    } else {
+                        $response.html('Ошибка отправки, попробуйте снова.');
+                    }
+                },
+                error: function () {
+                    $response.html('Ошибка на сервере. Пожалуйста, свяжитесь с нами по телефону');
                 }
             });
         }
     });
-
-
 })(jQuery);
