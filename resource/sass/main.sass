@@ -367,6 +367,9 @@ p
       .study_caption
         @include arrow_list
 
+
+
+
 //Reviews
 .reviews
   background-color: #DDDEDE
@@ -377,6 +380,7 @@ p
   #slick_slider
     margin-top: 45px
     padding: 0 25px
+    height: 100%
     @media screen and (max-width: 1280px)
       width: 95%
       margin: 0 auto
@@ -384,14 +388,19 @@ p
     @media screen and (max-width: 575px)
       width: 100%
       padding: 0
+    .slick-track
+      display: flex
     .slide
+      padding: 0 5px
       display: flex
       flex-wrap: wrap
-      padding: 0 5px
+      height: auto
       .img_block
         width: 30%
         @media screen and (max-width: 1280px)
           width: 35%
+        @media screen and (max-width: 1199px)
+          width: 40%
         @media screen and (max-width: 991px)
           width: 100%
         img
@@ -401,6 +410,7 @@ p
             width: 100%
             height: auto
       .text_block
+        height: 100%
         width: 70%
         padding: 30px
         padding-bottom: 20px
@@ -408,6 +418,8 @@ p
         position: relative
         @media screen and (max-width: 1280px)
           width: 65%
+        @media screen and (max-width: 1199px)
+          width: 60%
         @media screen and (max-width: 991px)
           width: 100%
           padding-bottom: 90px
