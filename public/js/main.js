@@ -36,15 +36,15 @@
     });
 
     //bonus bittuin
-    $(document).on('click', '.bonus_button', function () {
-        let $this = $(this);
+    $(document).on('click', '.bonus_button', function (e) {
+        var $this = $(this);
         $this.next('.taro_description').slideToggle(400);
         $this.toggleClass('active');
     });
 
 
     //up button and smooth scroll to the top
-    let $upBtn = $('.up_button');
+    var $upBtn = $('.up_button');
     window.onscroll = function () {
         scrollFunction()
     };
@@ -77,7 +77,7 @@
     });
 
     $(".question_form").on('click', function (e) {
-        let $form = $(this).closest('form'),
+        var $form = $(this).closest('form'),
             valid = $form[0].checkValidity(),
             $response = $('.response');
 
@@ -89,20 +89,44 @@
                 method: 'post',
                 data: $form.serialize(),
                 dataType: 'json',
-                beforeSend: function() {
+                beforeSend: function () {
                     $response.html('Отправка...');
                 },
-                success: function (results) {
-                    if (results.message === 'Queued. Thank you.') {
-                        $response.html('Ваше сообщение упешно отправлено');
-                    } else {
-                        $response.html('Ошибка отправки, попробуйте снова.');
-                    }
-                },
-                error: function () {
-                    $response.html('Ошибка на сервере. Пожалуйста, свяжитесь с нами по телефону');
+                success: function (response) {
+                    $response.html(response);
                 }
             });
         }
     });
+
+    function init() {
+        var vidDefer = document.getElementsByTagName('iframe');
+        for (var i = 0; i < vidDefer.length; i++) {
+            if (vidDefer[i].getAttribute('data-src')) {
+                vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));
+            }
+        }
+    }
+    window.onload = init;
+
+
+    $(".wpcf7").validate({
+        rules: {
+            name: "required",
+            phone: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            question: 'required'
+        },
+        messages: {
+            name: "Please include your name.",
+            email: "Please include a valid email address.",
+            phone: "Please include a valid phone.",
+            question: "Please tell me how I can help you.",
+
+        },
+    });
+
 })(jQuery);

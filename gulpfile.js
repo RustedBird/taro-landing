@@ -28,11 +28,32 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('public/js'));
 });
 
+gulp.task('main-script-min', function () {
+    return gulp.src(['public/js/libs.min.js', 'public/js/main.js'])
+        .pipe(uglify())
+        .pipe(concat('script.min.js'))
+        .pipe(gulp.dest('public/js'));
+});
+
 gulp.task('css-libs', function () {
    return gulp.src('resource/css/*.css')
        .pipe(minifycss())
        .pipe(concat('libs.min.css'))
        .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('sass-prod', function () {
+    return gulp.src('resource/sass/**/*.sass')
+        .pipe(sass())
+        .pipe(prefixer('last 2 versions'))
+        .pipe(minifycss())
+        .pipe(gulp.dest('resource/css'))
+});
+
+gulp.task('css-concat', function () {
+    return gulp.src(['public/css/libs.min.css', 'resource/css/main.css'])
+        .pipe(concat('styles.min.css'))
+        .pipe(gulp.dest('public/css'))
 });
 
 gulp.task('browser-sync', function () {
@@ -44,8 +65,10 @@ gulp.task('browser-sync', function () {
     });
 });
 
-gulp.task('watch', [/*'browser-sync',*/ 'sass', 'css-libs', 'scripts'], function () {
+gulp.task('watch', ['browser-sync', 'sass', 'css-libs', 'scripts'], function () {
     gulp.watch('resource/sass/**/*.sass', ['sass']);
     gulp.watch('public/*.html', browserSync.reload);
 });
+
+gulp.task('prod', ['sass-prod', 'css-libs', 'css-concat', 'scripts', 'main-script-min']);
 
